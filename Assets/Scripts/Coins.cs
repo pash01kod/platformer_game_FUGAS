@@ -16,6 +16,7 @@ public class Coins : MonoBehaviour
         if (c2d.tag == "Player")
         {
             totalCoins++;
+            PlayerPrefs.SetInt("Points", totalCoins);
             Debug.Log("You currently have " + Coins.totalCoins + " Coins.");
             Destroy(gameObject);
         }

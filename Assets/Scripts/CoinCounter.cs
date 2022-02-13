@@ -6,10 +6,13 @@ using UnityEngine.UI;
 public class CoinCounter : MonoBehaviour
 {
     Text counterText;
+    //public int points;
 
     void Start()
     {
         counterText = GetComponent<Text>();
+        Coins.totalCoins = PlayerPrefs.GetInt("Points", 0);
+        
     }
 
     void Update()

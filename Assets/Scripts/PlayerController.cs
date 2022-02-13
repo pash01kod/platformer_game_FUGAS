@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     CapsuleCollider2D mainCollider;
     Transform t;
 
+    private Vector3 respawnPoint;
+    public GameObject fallDetector;
+
     void Start()
     {
         t = transform;
@@ -31,6 +34,8 @@ public class PlayerController : MonoBehaviour
         {
             cameraPos = mainCamera.transform.position;
         }
+
+        respawnPoint = transform.localPosition;
     }
 
     void Update()
@@ -66,10 +71,19 @@ public class PlayerController : MonoBehaviour
             r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
         }
 
+        /*
+        if (transform.position.y < -1f)
+        {
+            Destroy(gameObject);
+        }
+        */
+
         if (mainCamera)
         {
             mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
         }
+
+        fallDetector.transform.position = new Vector2(transform.position.x, fallDetector.transform.position.y);
     }
 
     void FixedUpdate()
@@ -94,8 +108,17 @@ public class PlayerController : MonoBehaviour
         }
 
         r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
+    }
 
-        Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(0, colliderRadius, 0), isGrounded ? Color.green : Color.red);
-        Debug.DrawLine(groundCheckPos, groundCheckPos - new Vector3(colliderRadius, 0, 0), isGrounded ? Color.green : Color.red);
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag =="FallDetector")
+        {
+            transform.position = respawnPoint;
+        }
+        else if (collision.tag == "Checkpoint")
+        {
+            respawnPoint = transform.position;
+        }
     }
 }
