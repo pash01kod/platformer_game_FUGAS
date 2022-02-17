@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag =="FallDetector")
         {
+            HealthControl.health -= 1;
             transform.position = respawnPoint;
         }
         else if (collision.tag == "Checkpoint")

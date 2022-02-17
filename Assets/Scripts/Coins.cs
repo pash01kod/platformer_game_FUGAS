@@ -8,7 +8,12 @@ public class Coins : MonoBehaviour
 
     void Awake()
     {
+        if (!PlayerPrefs.HasKey("Points"))
+        {
+            PlayerPrefs.SetInt("Points", 0);
+        }
         GetComponent<Collider2D>().isTrigger = true;
+
     }
 
     void OnTriggerEnter2D(Collider2D c2d)
@@ -17,7 +22,7 @@ public class Coins : MonoBehaviour
         {
             totalCoins++;
             PlayerPrefs.SetInt("Points", totalCoins);
-            Debug.Log("You currently have " + Coins.totalCoins + " Coins.");
+            
             Destroy(gameObject);
         }
     }
