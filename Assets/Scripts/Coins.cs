@@ -12,6 +12,8 @@ public class Coins : MonoBehaviour
         {
             PlayerPrefs.SetInt("Points", 0);
         }
+        
+        
         GetComponent<Collider2D>().isTrigger = true;
 
     }

@@ -43,9 +43,9 @@ public class HealthControl : MonoBehaviour
                 heart2.SetActive(false);
                 heart3.SetActive(false);
                 gameOver.SetActive(true);
+                PlayerPrefs.SetInt("Level", 2);
                 Time.timeScale = 0;
                 break;
-
         }
     }
 }

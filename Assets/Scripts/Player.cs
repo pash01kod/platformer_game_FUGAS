@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -18,9 +19,10 @@ public class Player : MonoBehaviour
     public GameObject fallDetector;
 
 
-
     void Start()
     {
+        PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
+
         t = transform;
         myBody = this.GetComponent<Rigidbody2D>();
         myTrans = this.transform;
@@ -75,6 +77,15 @@ public class Player : MonoBehaviour
         else if (collision.tag == "Checkpoint")
         {
             respawnPoint = transform.position;
+        }
+        if (collision.tag == "Finish")
+        {
+            if (SceneManager.GetActiveScene().buildIndex == 6)
+            {
+
+                // PlayerPrefs.SetInt("NewHighscore", 1);
+                //SceneManager.LoadScene(8);
+            }
         }
     }
 }
