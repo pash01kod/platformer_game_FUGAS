@@ -19,8 +19,15 @@ public class Standings : MonoBehaviour
     void Update()
     {
         Text gt = this.GetComponent<Text>();
-        string name = PlayerPrefs.GetString("Player");
-        gt.text = name + "'s score is" + score + " points";
+
+        string name = "Player";
+
+        if (PlayerPrefs.HasKey("Player"))
+        {
+            name = PlayerPrefs.GetString("Player");
+        } 
+            
+        gt.text = name + "'s score is " + score + " points";
         if (score > PlayerPrefs.GetInt("Highscore"))
         {
             PlayerPrefs.SetInt("Highscore", score);

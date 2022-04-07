@@ -85,6 +85,7 @@ public class Player : MonoBehaviour
             {
                 int score = PlayerPrefs.GetInt("Points");
                 PlayerPrefs.SetInt("Highscore", score);
+                PlayerPrefs.SetInt("Level", 2);
                 Debug.Log(PlayerPrefs.GetInt("Highscore"));
             }
         }

@@ -10,6 +10,9 @@ public class CurrentLevel : MonoBehaviour
         if (PlayerPrefs.HasKey("Level"))
         {
             SceneManager.LoadScene(PlayerPrefs.GetInt("Level"));
+        } else
+        {
+            SceneManager.LoadScene("Level 1");
         }
     }
 }
