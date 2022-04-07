@@ -15,6 +15,16 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("LevelMenu");
     }
 
+    public void AddPlayer()
+    {
+        SceneManager.LoadScene("Settings");
+    }
+    
+    public void Result()
+    {
+        SceneManager.LoadScene("Standings");
+    }
+
     public void Exit()
     {
         Application.Quit();

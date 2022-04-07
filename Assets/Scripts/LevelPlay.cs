@@ -10,9 +10,7 @@ public class LevelPlay : MonoBehaviour
     {
         SceneManager.LoadScene(levelIndex);
         Time.timeScale = 1.0f;
-
     }
-
     public void CloseButton()
     {
         SceneManager.LoadScene("MainMenu");

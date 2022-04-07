@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Coins : MonoBehaviour
@@ -12,8 +13,12 @@ public class Coins : MonoBehaviour
         {
             PlayerPrefs.SetInt("Points", 0);
         }
-        
-        
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            PlayerPrefs.SetInt("Points", 0);
+        }
+
+
         GetComponent<Collider2D>().isTrigger = true;
 
     }

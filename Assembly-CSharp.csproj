@@ -54,7 +54,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\AddPlayer.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\CurrentLevel.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\HealthControl.cs" />
     <Compile Include="Assets\Scripts\FinishPoint.cs" />
@@ -63,8 +65,7 @@
     <Compile Include="Assets\Scripts\CoinCounter.cs" />
     <Compile Include="Assets\Scripts\LevelPlay.cs" />
     <Compile Include="Assets\Scripts\LoadScene.cs" />
-    <Compile Include="Assets\Scripts\CurrentLevel.cs" />
-    <Compile Include="Assets\Scripts\AddPlayer.cs" />
+    <Compile Include="Assets\Scripts\Standings.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Art\GUI\TXT\readme.txt" />

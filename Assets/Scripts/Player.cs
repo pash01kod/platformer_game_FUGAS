@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     {
         PlayerPrefs.SetInt("Level", SceneManager.GetActiveScene().buildIndex);
 
+        //PlayerPrefs.GetInt("Points", 0);
         t = transform;
         myBody = this.GetComponent<Rigidbody2D>();
         myTrans = this.transform;
@@ -82,9 +83,9 @@ public class Player : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().buildIndex == 6)
             {
-
-                // PlayerPrefs.SetInt("NewHighscore", 1);
-                //SceneManager.LoadScene(8);
+                int score = PlayerPrefs.GetInt("Points");
+                PlayerPrefs.SetInt("Highscore", score);
+                Debug.Log(PlayerPrefs.GetInt("Highscore"));
             }
         }
     }
